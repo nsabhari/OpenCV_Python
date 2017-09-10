@@ -20,8 +20,8 @@ def nothing(x):
     pass
 
 def Create_Trackbar():
-    cv2.namedWindow('HSV RANGES')
-    cv2.resizeWindow('HSV RANGES',400,200)
+    cv2.namedWindow('HSV RANGES',0)
+    cv2.resizeWindow('HSV RANGES',500,400)
     cv2.createTrackbar('Low_Hue','HSV RANGES',0,179,nothing)
     cv2.createTrackbar('High_Hue','HSV RANGES',0,179,nothing)
     cv2.createTrackbar('Low_Sat','HSV RANGES',0,255,nothing)
@@ -67,6 +67,7 @@ while(k!=27):
 
     cv2.imshow('ORIGINAL',frame)
     cv2.imshow('RESULT',res)
+    
 
     k = cv2.waitKey(1) & 0xFF
     if k == ord('p'):
