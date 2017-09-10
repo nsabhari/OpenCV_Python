@@ -44,14 +44,14 @@ while(k!=27):
     ret,th1 = cv2.threshold(img,Threshold_Value,255,cv2.THRESH_BINARY)
     th2 = cv2.adaptiveThreshold(img,255,cv2.ADAPTIVE_THRESH_MEAN_C,cv2.THRESH_BINARY,pix,c)
     th3 = cv2.adaptiveThreshold(img,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,pix,c)
-    
+
     res_a = np.concatenate((img,th1,cv2.dilate(th1,kernel,iterations = Iter)),axis = 1)
     res_b = np.concatenate((img,th2,cv2.dilate(th2,kernel,iterations = Iter)),axis = 1)
     res_c = np.concatenate((img,th3,cv2.dilate(th3,kernel,iterations = Iter)),axis = 1)
     res = np.concatenate((res_a,res_b,res_c),axis = 0)
     scale = min(1080.0/res.shape[0],720.0/res.shape[1])
     res = cv2.resize(res,None,fx=scale, fy=scale, interpolation = cv2.INTER_CUBIC)
-    cv2.imshow('thresh',res)
+    cv2.imshow('RESULT',res)
     k = cv2.waitKey(1) & 0xFF
 
 cv2.startWindowThread()
