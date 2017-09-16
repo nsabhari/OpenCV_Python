@@ -1,5 +1,5 @@
 '''
-This code is to see the effect of various types of thresholding in a image. This is bsed on OpenCV Tutorial.
+This code is to see the effect of various types of thresholding in a image. This is based on OpenCV Tutorial.
 Author: Sabhari Natarajan
 
 The various parameters can be varied using the trackbar.
@@ -15,7 +15,7 @@ import numpy as np
 def nothing(x):
     pass
 
-img = cv2.imread('Test_Road.jpg',0)
+img = cv2.imread('Test_Sudoku_1.jpg',0)
 
 def Create_Trackbar():
     cv2.namedWindow('THRESHOLDING',0)
@@ -31,16 +31,16 @@ img = cv2.medianBlur(img,5)
 k= 0
 
 while(k!=27):
-    Threshold_Value = cv2.getTrackbarPos('Threshold Value(A)','THRESHOLDING')
-    Kernel_Size = cv2.getTrackbarPos('Kernel Size','THRESHOLDING')
-    Iter = cv2.getTrackbarPos('Iterations','THRESHOLDING')
+    Threshold_Value = cv2.getTrackbarPos('Threshold Value(Normal Threshold)','THRESHOLDING')
+    Kernel_Size = cv2.getTrackbarPos('Kernel Size (For Dilate)','THRESHOLDING')
+    Iter = cv2.getTrackbarPos('Iterations (For Dilate)','THRESHOLDING')
     if Iter<1:  Itera = 1
     if Kernel_Size<1:   Kernel_Size=1
     kernel = np.ones((Kernel_Size,Kernel_Size),np.uint8)
-    pix = cv2.getTrackbarPos('NEIGHBOUR SIZE(B,C)','THRESHOLDING')
+    pix = cv2.getTrackbarPos('NEIGHBOUR SIZE(Adaptive Threshold)','THRESHOLDING')
     if pix%2 == 0:  pix = pix - 1
     if pix < 3: pix = 3
-    c = cv2.getTrackbarPos('SUBTRACTING CONSTANT(B,C)','THRESHOLDING')
+    c = cv2.getTrackbarPos('SUBTRACTING CONSTANT(Adaptive Threshold)','THRESHOLDING')
     ret,th1 = cv2.threshold(img,Threshold_Value,255,cv2.THRESH_BINARY)
     th2 = cv2.adaptiveThreshold(img,255,cv2.ADAPTIVE_THRESH_MEAN_C,cv2.THRESH_BINARY,pix,c)
     th3 = cv2.adaptiveThreshold(img,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,pix,c)

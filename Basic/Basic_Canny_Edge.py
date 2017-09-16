@@ -16,7 +16,7 @@ import numpy as np
 def nothing(x):
     pass    
     
-img = cv2.imread('Test_Contour.jpg',0)
+img = cv2.imread('Test_Sudoku_1.jpg',0)
 
 def Create_Trackbar():
     cv2.namedWindow('CANNY EDGE',0)

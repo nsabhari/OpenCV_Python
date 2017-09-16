@@ -1,13 +1,10 @@
 '''
-This code is to see the effect of varying Canny Edge parameters. This is based on the OpenCV Tutorial.
+This code is to see use of contours. This is based on the OpenCV Tutorial.
 Author: Sabhari Natarajan
 
 The various parameters can be varied using the trackbar.
 The results are shown in one single image in the order
-    'ORIGINAL'  'AFTER CANNY EDGE'
-
-It is always better to use Canny Edge after masking or thresholding.
-This code has Canny Edge only though.
+    'ORIGINAL'  'AFTER CANNY EDGE'  'AFTER CONTOUR'
 '''
 
 import cv2
